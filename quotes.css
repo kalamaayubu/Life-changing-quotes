@@ -1,0 +1,150 @@
+:root{
+    --primary-color: rgb(255, 50, 20);
+    --secondary-color: rgb(255, 251, 251);
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', 'sans-serif';
+}
+body{
+    background-color: black;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.flex_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.welcomeContainer{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("null (35).jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+/* The welcome content */
+#welcome{
+    position: absolute;
+    top: 35%;
+    color: white;
+    font-size: 50px;
+    animation: fadeout 15s ease-in, welcomeFadeIn 4s ease-in;
+}
+@keyframes welcomeFadeIn{
+    0%{
+        opacity: 0.2;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+#typewritten{
+    font-size: 50px;
+    color: var(--primary-color);
+    animation: fadeout 15s ease-in;
+}
+/* The home container */
+.homeContainer{
+    justify-content: start;
+    flex-direction: column;
+    gap: 5px;
+    width: 100vw;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 1);
+}
+.quotesGroupContainer{
+    background-color: white;
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    border-radius: 10px;
+    text-align: center;
+}
+.quotesGroupContainer h1{
+    padding: 20px;
+    font-size: 50px;
+}
+.quotesContainer{
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    background-color: var(--secondary-color);
+    padding: 5%;
+}
+.quotesGroup{
+    background-color: white;
+    transition: transform 1s ease;
+    box-shadow: 2px 2px 2px 1px rgba(116, 116, 116, 0.1);
+    padding-block: 20%;
+    border-radius: 10px;
+    min-width: 50px;
+    min-height: 50px;
+}
+.quotesGroup:hover{
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
+    transform: scale(1.06);
+    cursor: pointer;
+    font-size: 30px;
+    color: var(--primary-color);
+}
+.quotesGroup:active{
+    color: rgba(0, 0, 0, 0.3);
+}
+
+/* The end of the home container */
+
+/* For the welcoming container */
+.fadeOut{
+    animation: fadeout 17s ease-in;
+}
+/* For the home container */
+.fadeIn{
+    animation: fadein 2s ease-in;
+}
+
+/* Fade out effect */
+@keyframes fadeout{
+    0%{
+        opacity: 1;
+    }
+    25%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.7;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+/* Fade in effect */
+@keyframes fadein{
+    0%{
+        opacity: 0.3;
+    }
+    50%{
+        opacity: 0.9;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@media(width <= 700px){
+    .quotesGroupContainer h1{
+        font-size: 30px;
+    }
+    .quotesGroup:hover{
+        font-size: 20px;
+    }
+}
