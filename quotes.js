@@ -1,10 +1,8 @@
 // The welcome container and its content
-const welcomeContainer = document.querySelector('.WelcomeContainer');
+const welcomeContainer = document.querySelector('.welcomeContainer');
 const typewritten = document.getElementById('typewritten');
 const welcomeCont = document.getElementById('welcomeCont');
 
-// // The quotes container content in the home container
-const quotesContainer = document.querySelector(".quotesContainer");
 
 // Store the text to be typewritten
 const text = typewritten.textContent;
@@ -44,7 +42,7 @@ setTimeout(() => {
 // Remove the welcome container after 10 seconds and add the home container
 setTimeout(() => {
     document.body.appendChild(homeContainer);
-    welcomeCont.style.display = "none";
+    welcomeCont.remove();
 }, 15000);
 
 // The container inside the Home container
@@ -52,7 +50,7 @@ const quotesGroupContainer = document.createElement("div");
 quotesGroupContainer.classList.add("quotesGroupContainer");
 quotesGroupContainer.id = 'qsGroupContainer';
 quotesGroupContainer.innerHTML = `
-<h1>Quotes</h1>
+<h1>Quotes Categories</h1>
 <hr>
 <div class="quotesContainer" id="quotesCont">
     <div class="quotesGroup" id="authorsGroup">Authors</div>
@@ -73,10 +71,108 @@ quotesGroupContainer.innerHTML = `
 homeContainer.appendChild(quotesGroupContainer);
 // The end of the home container
 
-// // Click events in the home container
-// const quotesContainer = document.querySelector(".quotesContainer");
-// quotesContainer.addEventListener('click', (e) => {
-//     if (e.target.id == authorsGroup) {
-//         homeContainer.style.display = 'none';
-//     }
-// });
+// Click events in the home container
+const quotesContainer = document.querySelector(".quotesContainer"); 
+const quotesGroup = document.querySelector(".quotesGroup");
+
+quotesGroupContainer.addEventListener('click', (e) => {
+    if (e.target.textContent == "Authors") {
+        hideHomeContainer();
+        displayAuthors();
+    }
+});
+
+function hideHomeContainer() {
+    quotesGroupContainer.style.display = 'none';
+}
+
+// function unhideHomeContainer() {
+//     homeContainer.style.display = 'block';
+// }
+
+function displayAuthors() {
+    const authorsContainer = document.createElement("div");
+    authorsContainer.classList.add("authors_container", "fadeIn");
+    authorsContainer.innerHTML = `
+    <h1>Authors</h1>
+    <hr>
+    <div class="authorsHolder" id="authorsHold">
+        <div class="authorsGroup" id="abraham">
+            <img src="lincoln.webp" alt="abraham lincol image"> 
+            <p><span style="color: blue;">"</span>Whatever you are, be a good one.<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="albert">
+            <img src="einsten.webp" alt="einsten image"> 
+            <p style="color: white;"><span style="color: blue;">"</span>The only source of knowledge is experience.<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="aristotle">
+            <img src="aristotle.webp" alt="aristotle image">
+            <p style="color: black;"><span style="color: red;">"</span>It is the mark of an educated mind to be able to entertain a thought without accepting it.<span style="color: magenta;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="audre">
+            <img src="audre.webp" alt="audre image">
+            <p style="color: red;"><span style="color: blue;">"</span>I am deliberate and afraid of nothing<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="budhaa">
+            <img src="budhaa.jpg" alt="budhaa image">
+            <p style="color: fuchsia;"><span style="color: blue;">"</span>In the end, only three things matter: how much you loved,...<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="mahatma">
+            <img src="mahatma.jpeg" alt="mahatma image">
+            <p><span style="color: blue;">"</span>The best way to find yourself is to...<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="khalil">
+            <img src="khalil.jpeg" alt="khalil image">
+            <p><span style="color: blue;">"</span>Out of suffering have emerged the strongest souls; the most massive characters are seared with scars..<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="sunTzu">
+            <img src="sun.jpeg" alt="sunTzu image">
+            <p style="color: white;"><span style="color: blue;">"</span>Appear weak when you are strong, and strong when you are weak..<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="confucius">
+            <img src="cofucius.jpeg" alt="confucius image">
+            <p style="color: black;"><span style="color: blue;">"</span>To see what is right and not do it is the want of courage.<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="ziglar">
+            <img src="ziglar.webp" alt="ziglar image">
+            <p style="color: white;"><span style="color: blue;">"</span>You were born to win, but to be a winner, you must plan to win, prepare to win, and expect to win.<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="jobs">
+            <img src="jobs.jpg" alt="jobs image">
+            <p style="color: fuchsia;"><span style="color: blue;">"</span>Your work is going to fill a large part of your life, and the...<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="socrates">
+            <img src="Socrates.jpg" alt="Socrates image">
+            <p><span style="color: blue;">"</span>An unexamined life is not worth living<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="churchill">
+            <img src="churchill.jpg" alt="churchill image">
+            <p style="color: white;"><span style="color: blue;">"</span>We make a living by what we get, but we make a life by what we give.<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="shakespear">
+            <img src="shakespear.jpeg" alt="shakespear image">
+            <p style="color: white;"><span style="color: blue;">"</span>All the world's a stage, and all the men and women merely players.<span style="color: lime;">"</span></p>
+        </div>
+
+        <div class="authorsGroup" id="luther">
+            <img src="luther.webp" alt="luther image">
+            <p style="color: fuchsia;"><span style="color: blue;">"</span>Injustice anywhere is a threat to justice everywhere.<span style="color: lime;">"</span></p>
+        </div>
+    </div>
+    `;
+    homeContainer.appendChild(authorsContainer);
+}
+
