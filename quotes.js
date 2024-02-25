@@ -86,15 +86,20 @@ function hideHomeContainer() {
     quotesGroupContainer.style.display = 'none';
 }
 
-// function unhideHomeContainer() {
-//     homeContainer.style.display = 'block';
-// }
+function unhideHomeContainer() {
+    quotesGroupContainer.style.display = 'block';
+    quotesGroupContainer.classList.add("fadeIn")
+}
 
 function displayAuthors() {
     const authorsContainer = document.createElement("div");
     authorsContainer.classList.add("authors_container", "fadeIn");
+    authorsContainer.id = 'auContainer';
     authorsContainer.innerHTML = `
-    <h1>Authors</h1>
+    <div class="authorsHeader">
+        <span class="material-icons-round" id="homeIcon">home</span>
+        <h1>Authors</h1>
+    </div>
     <hr>
     <div class="authorsHolder" id="authorsHold">
         <div class="authorsGroup" id="abraham">
@@ -171,8 +176,25 @@ function displayAuthors() {
             <img src="luther.webp" alt="luther image">
             <p style="color: fuchsia;"><span style="color: blue;">"</span>Injustice anywhere is a threat to justice everywhere.<span style="color: lime;">"</span></p>
         </div>
+
+        <div class="authorsGroup" id="laoTzu">
+            <img src="laoTzu.jpeg" alt="laoTzu image">
+            <p style="color: black;"><span style="color: blue;">"</span>The truth is not always beautiful, nor beautiful words the truth<span style="color: lime;">"</span></p>
+        </div>
     </div>
     `;
     homeContainer.appendChild(authorsContainer);
+
+    // Click events for the authorsContainer
+    document.getElementById("homeIcon").addEventListener('click', () => {
+            hideAuthorsContainer();
+            unhideHomeContainer();
+    });
+
+    function hideAuthorsContainer() {
+        auContainer.remove();
+    }
 }
+
+
 
